@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Portfolio</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header" id="header">
+    <h2 id="nameTop"></h2>
+    <img id="avatarTop" class="avatar-small">
+  </div>
+
+  <!-- PROFILE -->
+  <div class="profile" id="profile">
+    <img id="avatar" class="avatar">
+    <h1 id="name"></h1>
+  </div>
+
+  <!-- NAV -->
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('portfolio', this)">Portfolio</button>
+    <button class="tab" onclick="showTab('tools', this)">Tools</button>
+
+    <div class="dropdown">
+      <button class="tab" onclick="toggleDropdown()">Extra ▼</button>
+      <div id="dropdownMenu" class="dropdown-menu"></div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div id="portfolio" class="tab-content active"></div>
+
+  <div id="tools" class="tab-content">
+    <input type="text" id="search" class="search" placeholder="Search tools..." oninput="searchTools()">
+    <div id="toolsList"></div>
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
