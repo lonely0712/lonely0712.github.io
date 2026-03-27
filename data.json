@@ -17,6 +17,16 @@
     "name": "Snapchat",
     "link": "",
     "image": "/Assets/Portfolio/snapchat.png"
+    },
+    {
+      "name": "Twitter",
+      "link": "",
+      "image": "/Assets/Portfolio/twitter.png"
+    },
+    {
+      "name": "Github",
+      "link": "https://github.com/lonely0712",
+      "image": "/Assets/Portfolio/github.png"
     }
   ],
 
@@ -24,14 +34,14 @@
     {
       "name": "Shadowrocket Modules",
       "desc": "A collection of modules for Shadowrocket, a popular iOS proxy tool. These modules enhance the functionality of Shadowrocket by providing additional features and capabilities.",
-      "image": "https://via.placeholder.com/300x200",
-      "link": "#"
+      "image": "/Assets/Tools/shadowrocketModules.png",
+      "link": "adham.thedev.me/ShadowrocketModules"
     }
   ],
 
   "extra": [
     {
-      "name": "",
+      "name": "Here ia my extra section",
       "link": "#"
     },
     {

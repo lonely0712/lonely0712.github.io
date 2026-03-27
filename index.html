@@ -2,44 +2,52 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Portfolio</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
+<div class="app">
 
-  <!-- HEADER -->
+  <div class="container">
+
+    <div class="top-area">
   <div class="header" id="header">
-    <h2 id="nameTop"></h2>
+    <h2 id="nameTop" onclick="goPortfolio()"></h2>
     <img id="avatarTop" class="avatar-small">
   </div>
 
-  <!-- PROFILE -->
   <div class="profile" id="profile">
     <img id="avatar" class="avatar">
-    <h1 id="name"></h1>
+    <h1 id="name" onclick="goPortfolio()"></h1>
   </div>
+</div>
 
-  <!-- NAV -->
-  <div class="tabs">
-    <button class="tab active" onclick="showTab('portfolio', this)">Portfolio</button>
-    <button class="tab" onclick="showTab('tools', this)">Tools</button>
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('portfolio', this)">Portfolio</button>
+      <button class="tab" onclick="showTab('tools', this)">Tools</button>
 
-    <div class="dropdown">
-      <button class="tab" onclick="toggleDropdown()">Extra ▼</button>
-      <div id="dropdownMenu" class="dropdown-menu"></div>
+      <div class="dropdown">
+        <button class="tab extra-trigger" onclick="toggleDropdown(this)">Extra ▼</button>
+        <div id="dropdownMenu" class="dropdown-menu"></div>
+      </div>
+
+      <div class="tab-indicator" id="indicator"></div>
     </div>
+
+    <div class="content-wrapper">
+      <div id="portfolio" class="tab-content active"></div>
+
+      <div id="tools" class="tab-content">
+        <div class="search-wrap">
+          <input type="text" id="search" placeholder="Search tools..." oninput="searchTools()">
+        </div>
+        <div id="toolsList"></div>
+      </div>
+    </div>
+
   </div>
-
-  <!-- CONTENT -->
-  <div id="portfolio" class="tab-content active"></div>
-
-  <div id="tools" class="tab-content">
-    <input type="text" id="search" class="search" placeholder="Search tools..." oninput="searchTools()">
-    <div id="toolsList"></div>
-  </div>
-
 </div>
 
 <script src="script.js"></script>

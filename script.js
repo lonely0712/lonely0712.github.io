@@ -1,99 +1,99 @@
 let data;
-let toolsData = [];
 
 fetch("data.json")
-  .then(res => res.json())
-  .then(json => {
-    data = json;
-    toolsData = data.tools;
-    loadData();
-  });
+.then(r=>r.json())
+.then(j=>{
+  data=j;
+  loadData();
+});
 
-function loadData() {
-  document.getElementById("name").textContent = data.name;
-  document.getElementById("avatar").src = data.avatar;
-
-  document.getElementById("nameTop").textContent = data.name;
-  document.getElementById("avatarTop").src = data.avatar;
+function loadData(){
+  name.textContent=data.name;
+  avatar.src=data.avatar;
+  nameTop.textContent=data.name;
+  avatarTop.src=data.avatar;
 
   loadPortfolio();
   loadTools();
   loadExtra();
 }
 
-/* PORTFOLIO = BUTTONS */
-function loadPortfolio() {
-  const container = document.getElementById("portfolio");
-
-  data.portfolio.forEach(item => {
-    container.innerHTML += `
-      <a href="${item.link}" class="link-btn" target="_blank">
-        <img src="${item.image}">
-        <span>${item.name}</span>
-      </a>
-    `;
+function loadPortfolio(){
+  portfolio.innerHTML="";
+  data.portfolio.forEach(i=>{
+    portfolio.innerHTML+=`
+      <a href="${i.link}" class="link-btn">
+        <img src="${i.image}">
+        <span>${i.name}</span>
+      </a>`;
   });
 }
 
-/* TOOLS = CARDS */
-function loadTools() {
-  const container = document.getElementById("toolsList");
-
-  container.innerHTML = "";
-
-  toolsData.forEach(item => {
-    container.innerHTML += `
-      <a href="${item.link}" class="card" target="_blank">
-        <img src="${item.image}">
+function loadTools(){
+  toolsList.innerHTML="";
+  data.tools.forEach(i=>{
+    toolsList.innerHTML+=`
+      <a href="${i.link}" class="card">
+        <img src="${i.image}">
         <div class="card-content">
-          <h3>${item.name}</h3>
-          <p>${item.desc}</p>
+          <h3>${i.name}</h3>
+          <p>${i.desc}</p>
         </div>
-      </a>
-    `;
+      </a>`;
   });
 }
 
-/* SEARCH */
-function searchTools() {
-  const value = document.getElementById("search").value.toLowerCase();
-
-  toolsData = data.tools.filter(t =>
-    t.name.toLowerCase().includes(value)
-  );
-
-  loadTools();
-}
-
-/* EXTRA DROPDOWN */
-function loadExtra() {
-  const dropdown = document.getElementById("dropdownMenu");
-
-  data.extra.forEach(item => {
-    dropdown.innerHTML += `
-      <a href="${item.link}" target="_blank">${item.name}</a>
-    `;
+function searchTools(){
+  const v=search.value.toLowerCase();
+  toolsList.innerHTML="";
+  data.tools.filter(t=>t.name.toLowerCase().includes(v)).forEach(i=>{
+    toolsList.innerHTML+=`
+      <a href="${i.link}" class="card">
+        <img src="${i.image}">
+        <div class="card-content">
+          <h3>${i.name}</h3>
+          <p>${i.desc}</p>
+        </div>
+      </a>`;
   });
 }
 
-/* NAV */
-function showTab(tabId, el) {
-  document.querySelectorAll(".tab-content").forEach(e => e.classList.remove("active"));
-  document.querySelectorAll(".tab").forEach(e => e.classList.remove("active"));
+function loadExtra(){
+  dropdownMenu.innerHTML="";
+  data.extra.forEach(i=>{
+    dropdownMenu.innerHTML+=`<a href="${i.link}">${i.name}</a>`;
+  });
+}
 
-  document.getElementById(tabId).classList.add("active");
-  el.classList.add("active");
+/* SMOOTH HEADER ANIMATION */
+function showTab(id,btn){
+  document.querySelectorAll(".tab-content").forEach(e=>e.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
 
-  if (tabId === "portfolio") {
-    document.getElementById("profile").style.display = "block";
-    document.getElementById("header").style.display = "none";
-  } else {
-    document.getElementById("profile").style.display = "none";
-    document.getElementById("header").style.display = "flex";
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+
+  const index=[...document.querySelectorAll(".tab")].indexOf(btn);
+  indicator.style.transform=`translateX(${index*100}%)`;
+
+  if(id==="portfolio"){
+    profile.classList.remove("hide");
+    header.classList.remove("show");
+  }else{
+    profile.classList.add("hide");
+    header.classList.add("show");
   }
+
+  dropdownMenu.classList.remove("show");
 }
 
-/* DROPDOWN */
-function toggleDropdown() {
-  document.getElementById("dropdownMenu").classList.toggle("show");
+function toggleDropdown(btn){
+  dropdownMenu.classList.toggle("show");
+
+  const index=[...document.querySelectorAll(".tab")].indexOf(btn);
+  indicator.style.transform=`translateX(${index*100}%)`;
+}
+
+function goPortfolio(){
+  showTab('portfolio',document.querySelectorAll(".tab")[0]);
 }
