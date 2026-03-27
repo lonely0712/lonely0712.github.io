@@ -37,16 +37,5 @@
       "image": "/Assets/Tools/shadowrocketModules.png",
       "link": "adham.thedev.me/ShadowrocketModules"
     }
-  ],
-
-  "extra": [
-    {
-      "name": "Here ia my extra section",
-      "link": "#"
-    },
-    {
-      "name": "",
-      "link": ""
-    }
   ]
 }

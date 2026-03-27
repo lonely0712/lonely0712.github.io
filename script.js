@@ -4,10 +4,10 @@ fetch("data.json")
 .then(r=>r.json())
 .then(j=>{
   data=j;
-  loadData();
+  init();
 });
 
-function loadData(){
+function init(){
   name.textContent=data.name;
   avatar.src=data.avatar;
   nameTop.textContent=data.name;
@@ -15,7 +15,6 @@ function loadData(){
 
   loadPortfolio();
   loadTools();
-  loadExtra();
 }
 
 function loadPortfolio(){
@@ -58,14 +57,7 @@ function searchTools(){
   });
 }
 
-function loadExtra(){
-  dropdownMenu.innerHTML="";
-  data.extra.forEach(i=>{
-    dropdownMenu.innerHTML+=`<a href="${i.link}">${i.name}</a>`;
-  });
-}
-
-/* SMOOTH HEADER ANIMATION */
+/* TAB SYSTEM */
 function showTab(id,btn){
   document.querySelectorAll(".tab-content").forEach(e=>e.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -83,17 +75,4 @@ function showTab(id,btn){
     profile.classList.add("hide");
     header.classList.add("show");
   }
-
-  dropdownMenu.classList.remove("show");
-}
-
-function toggleDropdown(btn){
-  dropdownMenu.classList.toggle("show");
-
-  const index=[...document.querySelectorAll(".tab")].indexOf(btn);
-  indicator.style.transform=`translateX(${index*100}%)`;
-}
-
-function goPortfolio(){
-  showTab('portfolio',document.querySelectorAll(".tab")[0]);
 }
