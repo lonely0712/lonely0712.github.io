@@ -1,22 +1,22 @@
 {
   "name": "Adham Elwan",
-  "avatar": "/Assets/user.png",
+  "avatar": "/Assets/User.png",
 
   "portfolio": [
     {
       "name": "Instagram",
       "link": "",
-      "image": "/Assets/Portfolio/instagram.png"
+      "image": "/Assets/Portfolio/Instagram.png"
     },
     {
       "name": "Facebook",
       "link": "",
-      "image": "/Assets/Portfolio/facebook.png"
+      "image": "/Assets/Portfolio/Facebook.png"
     },
     {
     "name": "Snapchat",
     "link": "",
-    "image": "/Assets/Portfolio/snapchat.png"
+    "image": "/Assets/Portfolio/Snapchat.png"
     },
     {
       "name": "Twitter",
@@ -26,7 +26,7 @@
     {
       "name": "Github",
       "link": "https://github.com/lonely0712",
-      "image": "/Assets/Portfolio/github.png"
+      "image": "/Assets/Portfolio/Github.png"
     }
   ],
 
